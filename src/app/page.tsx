@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Container } from "@/components/container";
 
 export default async function Folio() {
@@ -8,6 +9,7 @@ export default async function Folio() {
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
       </p>
+      <Image src="/avatar.png" alt="folio" width={250} height={500} />
     </Container>
   );
 }
