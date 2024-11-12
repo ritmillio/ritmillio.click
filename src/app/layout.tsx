@@ -1,9 +1,15 @@
 import "@/styles/globals.css";
 
-import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 
 import { TRPCReactProvider } from "@/trpc/react";
+
+import localFont from "next/font/local";
+
+export const font = localFont({
+  src: "../fonts/MagdaClean.ttf",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Create T3 App",
@@ -15,9 +21,11 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${GeistSans.variable}`}>
+    <html lang="en" className={`${font.className}`}>
       <body>
-        <TRPCReactProvider>{children}</TRPCReactProvider>
+        <TRPCReactProvider>
+          <main className="bg-gradient h-screen">{children}</main>
+        </TRPCReactProvider>
       </body>
     </html>
   );
