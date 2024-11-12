@@ -1,3 +1,34 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .bg-gradient {
+    position: relative;
+    background: radial-gradient(at 30% 30%, #333333, #1a1a1a, #000000);
+    background-size: 200% 200%;
+    animation: mesh-gradient-animation 10s ease-in-out infinite;
+    overflow: hidden;
+  }
+
+  .bg-gradient-mesh::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("../public/noise.png");
+    opacity: 0.1;
+    pointer-events: none;
+  }
+
+  @keyframes mesh-gradient-animation {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }
+}
